@@ -22,7 +22,7 @@ public class GerenteDeVentas implements IAprobador {
 
     @Override
     public void solicitudPrestamo(int monto) {
-            if( monto >= 10000 && monto < 20000){
+            if( monto >= 20000){
                 System.out.println("Aprobado por Gerente de venta");
             }
             else{

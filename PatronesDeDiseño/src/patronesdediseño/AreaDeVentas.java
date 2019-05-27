@@ -30,10 +30,10 @@ public class AreaDeVentas implements IAprobador {
         supervisorVentas.setNext(jefeDeVentas);
         
         GerenteDeZona gerenteDeZona = new GerenteDeZona();
-        supervisorVentas.setNext(gerenteDeZona);
+        jefeDeVentas.setNext(gerenteDeZona);
         
         GerenteDeVentas gerenteDeVentas = new GerenteDeVentas();
-        supervisorVentas.setNext(gerenteDeVentas);
+        gerenteDeZona.setNext(gerenteDeVentas);
         
         next.solicitudPrestamo(monto);
     }
