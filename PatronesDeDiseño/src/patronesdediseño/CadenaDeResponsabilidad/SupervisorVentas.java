@@ -1,8 +1,8 @@
-package patronesdediseño;
+
+package patronesdediseño.CadenaDeResponsabilidad;
 
 
-public class JefeDeVentas implements IAprobador {
-
+public class SupervisorVentas implements IAprobador {
     IAprobador next;
     
     @Override
@@ -13,15 +13,16 @@ public class JefeDeVentas implements IAprobador {
     @Override
     public IAprobador getNext() {
         return next;
-         }
+    }
 
     @Override
     public void solicitudPrestamo(int monto) {
-            if( monto >= 5000 && monto < 10000){
-                System.out.println("Aprobado por Jefe de ventas");
+            if( monto < 5000 ){
+                System.out.println("Aprobado por Supervisor Ventas");
             }
             else{
                 next.solicitudPrestamo(monto);
             }    
     }
+    
 }

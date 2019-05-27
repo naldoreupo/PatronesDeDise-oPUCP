@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patronesdediseño;
+package patronesdediseño.CadenaDeResponsabilidad;
 
 
-public class GerenteDeVentas implements IAprobador {
+public class GerenteDeZona implements IAprobador {
 
   IAprobador next;
     
     @Override
     public void setNext(IAprobador aprobador) {
             this.next=aprobador;
-   }
+    }
 
     @Override
     public IAprobador getNext() {
@@ -22,14 +22,11 @@ public class GerenteDeVentas implements IAprobador {
 
     @Override
     public void solicitudPrestamo(int monto) {
-            if( monto >= 20000){
-                System.out.println("Aprobado por Gerente de venta");
+            if( monto >= 10000 && monto < 20000){
+                System.out.println("Aprobado por Gerente de zona");
             }
             else{
                 next.solicitudPrestamo(monto);
             }    
     }
-
-
-    
 }

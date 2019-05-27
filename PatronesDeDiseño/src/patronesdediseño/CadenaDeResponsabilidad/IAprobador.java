@@ -1,4 +1,4 @@
-package patronesdediseño;
+package patronesdediseño.CadenaDeResponsabilidad;
 
 public interface IAprobador {
     

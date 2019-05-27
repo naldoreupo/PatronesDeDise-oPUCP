@@ -1,5 +1,7 @@
 package patronesdediseño;
 
+import patronesdediseño.CadenaDeResponsabilidad.AreaDeVentas;
+
 
 public class PatronesDeDiseño {
 
