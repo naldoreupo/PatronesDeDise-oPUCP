@@ -5,6 +5,8 @@
  */
 package patronesdediseño;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author usuario
@@ -60,11 +62,11 @@ public class jpCobrar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblMontoACobrar))
-                .addGap(0, 362, Short.MAX_VALUE))
+                .addGap(0, 403, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
