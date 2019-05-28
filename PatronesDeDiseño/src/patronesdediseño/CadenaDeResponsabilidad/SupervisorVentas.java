@@ -21,9 +21,8 @@ public class SupervisorVentas implements IAprobador {
                 return "Aprobado por Supervisor Ventas";
             }
             else{
-                next.solicitudPrestamo(monto);
-            }   
-      return "Crédito no aprobado";
+              return  next.solicitudPrestamo(monto);
+            }
     }
     
 }

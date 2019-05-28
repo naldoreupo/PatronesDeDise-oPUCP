@@ -26,9 +26,8 @@ public class GerenteDeZona implements IAprobador {
                return "Aprobado por Gerente de zona";
             }
             else{
-                next.solicitudPrestamo(monto);
+              return  next.solicitudPrestamo(monto);
             }    
             
-      return "Crédito no aprobado";
     }
 }

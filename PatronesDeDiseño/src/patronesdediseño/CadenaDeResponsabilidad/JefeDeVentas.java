@@ -21,9 +21,8 @@ public class JefeDeVentas implements IAprobador {
                 return "Aprobado por Jefe de ventas";
             }
             else{
-                next.solicitudPrestamo(monto);
+              return  next.solicitudPrestamo(monto);
             }   
             
-      return "Crédito no aprobado";
     }
 }

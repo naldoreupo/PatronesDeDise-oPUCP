@@ -26,9 +26,8 @@ public class GerenteDeVentas implements IAprobador {
                 return "Crédito aprobado por Gerente de venta";
             }
             else{
-                next.solicitudPrestamo(monto);
+               return next.solicitudPrestamo(monto);
             }    
-      return "Crédito no aprobado";
     }
 
 
