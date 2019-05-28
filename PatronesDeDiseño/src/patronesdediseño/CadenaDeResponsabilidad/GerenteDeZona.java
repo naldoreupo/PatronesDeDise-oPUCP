@@ -21,12 +21,13 @@ public class GerenteDeZona implements IAprobador {
          }
 
     @Override
-    public void solicitudPrestamo(int monto) {
-            if( monto >= 10000 && monto < 20000){
-                System.out.println("Aprobado por Gerente de zona");
+    public String solicitudPrestamo(int monto) {
+            if( monto >= 20000 && monto < 30000){
+               return "Gerente de zona";
             }
             else{
-                next.solicitudPrestamo(monto);
+              return  next.solicitudPrestamo(monto);
             }    
+            
     }
 }

@@ -21,7 +21,7 @@ public class AreaDeVentas implements IAprobador {
          }
 
     @Override
-    public void solicitudPrestamo(int monto) {
+    public String solicitudPrestamo(int monto) {
        
         SupervisorVentas supervisorVentas = new SupervisorVentas(); 
         this.setNext(supervisorVentas);
@@ -35,7 +35,7 @@ public class AreaDeVentas implements IAprobador {
         GerenteDeVentas gerenteDeVentas = new GerenteDeVentas();
         gerenteDeZona.setNext(gerenteDeVentas);
         
-        next.solicitudPrestamo(monto);
+        return next.solicitudPrestamo(monto);
     }
     
 }

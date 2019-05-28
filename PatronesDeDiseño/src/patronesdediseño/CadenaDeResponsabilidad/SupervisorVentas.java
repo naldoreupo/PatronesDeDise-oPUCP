@@ -16,13 +16,13 @@ public class SupervisorVentas implements IAprobador {
     }
 
     @Override
-    public void solicitudPrestamo(int monto) {
-            if( monto < 5000 ){
-                System.out.println("Aprobado por Supervisor Ventas");
+    public String solicitudPrestamo(int monto) {
+            if( monto < 10000 ){
+                return "Supervisor Ventas";
             }
             else{
-                next.solicitudPrestamo(monto);
-            }    
+              return  next.solicitudPrestamo(monto);
+            }
     }
     
 }
