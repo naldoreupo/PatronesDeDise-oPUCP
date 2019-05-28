@@ -17,7 +17,7 @@ public class SupervisorVentas implements IAprobador {
 
     @Override
     public String solicitudPrestamo(int monto) {
-            if( monto < 5000 ){
+            if( monto < 10000 ){
                 return "Supervisor Ventas";
             }
             else{

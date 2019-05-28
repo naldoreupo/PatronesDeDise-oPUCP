@@ -123,10 +123,10 @@ public class jpVentas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSaldo)
-                            .addComponent(lblMontoACobrar))
-                        .addGap(0, 185, Short.MAX_VALUE))
+                        .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblMontoACobrar, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(lblSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 97, Short.MAX_VALUE))
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogCobrarLayout.createSequentialGroup()
@@ -151,18 +151,18 @@ public class jpVentas extends javax.swing.JInternalFrame {
                 .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblSaldo))
-                .addGap(64, 64, 64)
+                .addGap(18, 18, 18)
                 .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addComponent(txtMontoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
+                        .addGap(18, 18, 18)
                         .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbCredito)
                             .addComponent(rbEfectivo))
                         .addGap(18, 18, 18)
                         .addComponent(btnCobrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         rbCredito.getAccessibleContext().setAccessibleName("rbtipoPago");
@@ -224,33 +224,26 @@ public class jpVentas extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_btnCobrarActionPerformed
 
-    private void llenarTabla(){    
-        this.tablePagos.setModel(modelo);
-        modelo.addColumn("Tipo pago");
-        modelo.addColumn("Monto");
-        modelo.addColumn("Aprobado por :");
-    }
-    
     private void btnCobrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrar1ActionPerformed
         // TODO add your handling code here:
         try{
-            
-        int pagoParcial = Integer.parseInt(this.txtMontoAPagar.getText());
-        this.lblMontoACobrar.setText(Integer.toString(this.montoACobrar));
 
-         if (ValidarSaldo(pagoParcial))   
-         {
+            int pagoParcial = Integer.parseInt(this.txtMontoAPagar.getText());
+            this.lblMontoACobrar.setText(Integer.toString(this.montoACobrar));
+
+            if (ValidarSaldo(pagoParcial))
+            {
                 this.Saldo -= pagoParcial ;
-                 String aprobador ="No necesita";
-                if (this.rbCredito.isSelected() ){                
+                String aprobador ="No necesita";
+                if (this.rbCredito.isSelected() ){
                     AreaDeVentas areaDeVentas = new AreaDeVentas();
-                     aprobador = areaDeVentas.solicitudPrestamo(pagoParcial);
-                    
+                    aprobador = areaDeVentas.solicitudPrestamo(pagoParcial);
+
                     JOptionPane.showMessageDialog(null,
                         "Crédito aprobado por "+aprobador,
                         "Solicitud de crédito",
                         JOptionPane.WARNING_MESSAGE);
-                }             
+                }
 
                 Object [] pago = new Object[8];
                 pago[0] = this.rbCredito.isSelected() ? "Credito" : "Efectivo";
@@ -260,16 +253,23 @@ public class jpVentas extends javax.swing.JInternalFrame {
 
                 this.lblSaldo.setText(Integer.toString(this.Saldo));
                 this.txtMontoAPagar.setText(Integer.toString(this.Saldo));
-         }
+            }
         }
         catch(Exception ex){
-                JOptionPane.showMessageDialog(null,
-                    ex.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);            
+            JOptionPane.showMessageDialog(null,
+                ex.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCobrar1ActionPerformed
 
+    private void llenarTabla(){    
+        this.tablePagos.setModel(modelo);
+        modelo.addColumn("Tipo pago");
+        modelo.addColumn("Monto");
+        modelo.addColumn("Aprobado por :");
+    }
+    
     private boolean ValidarSaldo(int pagoParcial){
             if(pagoParcial > this.Saldo ) {
 
