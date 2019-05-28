@@ -18,7 +18,7 @@ public class JefeDeVentas implements IAprobador {
     @Override
     public String solicitudPrestamo(int monto) {
             if( monto >= 5000 && monto < 10000){
-                return "Aprobado por Jefe de ventas";
+                return "Jefe de ventas";
             }
             else{
               return  next.solicitudPrestamo(monto);

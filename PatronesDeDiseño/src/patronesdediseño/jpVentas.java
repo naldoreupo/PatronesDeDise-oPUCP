@@ -19,8 +19,8 @@ public class jpVentas extends javax.swing.JInternalFrame {
     /**
      * Creates new form JINTERNALFRAME1
      */
-    public int montoACobrar =8000;
-    public int Saldo = 8000;    
+    public int montoACobrar =80000;
+    public int Saldo = 0;    
     DefaultTableModel  modelo = new DefaultTableModel();
     
     public jpVentas() {
@@ -72,17 +72,17 @@ public class jpVentas extends javax.swing.JInternalFrame {
 
         tablePagos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null,  new Integer(0)},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null,  new Integer(0), null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Tipo pago", "Monto"
+                "Tipo pago", "Monto", "Aprobado por :"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -103,11 +103,11 @@ public class jpVentas extends javax.swing.JInternalFrame {
 
         rbgTipoPago.add(rbCredito);
         rbCredito.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rbCredito.setSelected(true);
         rbCredito.setText("Crédito");
 
         rbgTipoPago.add(rbEfectivo);
         rbEfectivo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rbEfectivo.setSelected(true);
         rbEfectivo.setText("Efectivo");
 
         javax.swing.GroupLayout dialogCobrarLayout = new javax.swing.GroupLayout(dialogCobrar.getContentPane());
@@ -117,19 +117,16 @@ public class jpVentas extends javax.swing.JInternalFrame {
             .addGroup(dialogCobrarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(dialogCobrarLayout.createSequentialGroup()
-                                .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSaldo)
-                                    .addComponent(lblMontoACobrar))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSaldo)
+                            .addComponent(lblMontoACobrar))
+                        .addGap(0, 185, Short.MAX_VALUE))
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogCobrarLayout.createSequentialGroup()
@@ -138,9 +135,9 @@ public class jpVentas extends javax.swing.JInternalFrame {
                                 .addComponent(rbEfectivo))
                             .addComponent(btnCobrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                             .addComponent(txtMontoAPagar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         dialogCobrarLayout.setVerticalGroup(
             dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +152,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(lblSaldo))
                 .addGap(64, 64, 64)
-                .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addComponent(txtMontoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
@@ -163,11 +160,9 @@ public class jpVentas extends javax.swing.JInternalFrame {
                             .addComponent(rbCredito)
                             .addComponent(rbEfectivo))
                         .addGap(18, 18, 18)
-                        .addComponent(btnCobrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(81, Short.MAX_VALUE))
-                    .addGroup(dialogCobrarLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(34, 34, 34))))
+                        .addComponent(btnCobrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         rbCredito.getAccessibleContext().setAccessibleName("rbtipoPago");
@@ -233,6 +228,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
         this.tablePagos.setModel(modelo);
         modelo.addColumn("Tipo pago");
         modelo.addColumn("Monto");
+        modelo.addColumn("Aprobado por :");
     }
     
     private void btnCobrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrar1ActionPerformed
@@ -245,10 +241,13 @@ public class jpVentas extends javax.swing.JInternalFrame {
          if (ValidarSaldo(pagoParcial))   
          {
                 this.Saldo -= pagoParcial ;
+                 String aprobador ="No necesita";
                 if (this.rbCredito.isSelected() ){                
                     AreaDeVentas areaDeVentas = new AreaDeVentas();
+                     aprobador = areaDeVentas.solicitudPrestamo(pagoParcial);
+                    
                     JOptionPane.showMessageDialog(null,
-                        areaDeVentas.solicitudPrestamo(pagoParcial),
+                        "Crédito aprobado por "+aprobador,
                         "Solicitud de crédito",
                         JOptionPane.WARNING_MESSAGE);
                 }             
@@ -256,6 +255,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
                 Object [] pago = new Object[8];
                 pago[0] = this.rbCredito.isSelected() ? "Credito" : "Efectivo";
                 pago[1] = pagoParcial;
+                pago[2] = aprobador;
                 modelo.addRow(pago);
 
                 this.lblSaldo.setText(Integer.toString(this.Saldo));
