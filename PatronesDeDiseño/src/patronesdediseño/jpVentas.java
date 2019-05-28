@@ -25,7 +25,6 @@ public class jpVentas extends javax.swing.JInternalFrame {
     
     public jpVentas() {
         initComponents();
-        llenarTabla();
     }
 
     @SuppressWarnings("unchecked")
@@ -170,7 +169,6 @@ public class jpVentas extends javax.swing.JInternalFrame {
 
         setBorder(null);
         setClosable(true);
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setVisible(true);
@@ -215,6 +213,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrarActionPerformed
+        llenarTabla();
         this.Saldo= this.montoACobrar;
         this.lblMontoACobrar.setText(Integer.toString(this.montoACobrar));
         this.txtMontoAPagar.setText(Integer.toString(this.Saldo));
@@ -268,6 +267,12 @@ public class jpVentas extends javax.swing.JInternalFrame {
         modelo.addColumn("Tipo pago");
         modelo.addColumn("Monto");
         modelo.addColumn("Aprobado por :");
+        DefaultTableModel model = (DefaultTableModel)this.tablePagos.getModel(); 
+        int rows = model.getRowCount(); 
+        for(int i = rows - 1; i >=0; i--)
+        {
+                 model.removeRow(i); 
+        }
     }
     
     private boolean ValidarSaldo(int pagoParcial){
