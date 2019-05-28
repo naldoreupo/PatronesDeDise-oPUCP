@@ -16,12 +16,14 @@ public class JefeDeVentas implements IAprobador {
          }
 
     @Override
-    public void solicitudPrestamo(int monto) {
+    public String solicitudPrestamo(int monto) {
             if( monto >= 5000 && monto < 10000){
-                System.out.println("Aprobado por Jefe de ventas");
+                return "Aprobado por Jefe de ventas";
             }
             else{
                 next.solicitudPrestamo(monto);
-            }    
+            }   
+            
+      return "Crédito no aprobado";
     }
 }
