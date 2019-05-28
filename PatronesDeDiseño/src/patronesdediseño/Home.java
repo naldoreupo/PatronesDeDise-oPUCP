@@ -42,18 +42,18 @@ public class Home extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1370, Short.MAX_VALUE)
+            .addGap(0, 1400, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 740, Short.MAX_VALUE)
         );
 
         desktopPane.add(jDesktopPane1);
-        jDesktopPane1.setBounds(30, 10, 1370, 720);
+        jDesktopPane1.setBounds(0, 0, 1400, 740);
 
         editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        editMenu.setText("Ventas");
 
         registrarVenta.setMnemonic('t');
         registrarVenta.setText("Registrar venta");
