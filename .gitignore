@@ -1,2 +1,8 @@
-/PatronesDeDiseño/nbproject/private/
+﻿/PatronesDeDiseño/nbproject/private/
+/PatronesDeDiseño/nbproject/Makefile-*.mk
+/PatronesDeDiseño/nbproject/Package-*.bash
 /PatronesDeDiseño/build/
+/PatronesDeDiseño/nbbuild/
+/PatronesDeDiseño/dist/
+/PatronesDeDiseño/nbdist/
+/PatronesDeDiseño/.nb-gradle/
