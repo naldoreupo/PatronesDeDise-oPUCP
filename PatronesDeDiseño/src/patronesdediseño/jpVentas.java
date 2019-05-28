@@ -20,12 +20,11 @@ public class jpVentas extends javax.swing.JInternalFrame {
      * Creates new form JINTERNALFRAME1
      */
     public int montoACobrar =8000;
-    public int Saldo =8000;    
+    public int Saldo = 8000;    
     DefaultTableModel  modelo = new DefaultTableModel();
     
     public jpVentas() {
         initComponents();
-        this.lblMontoACobrar.setText(Integer.toString(this.montoACobrar));
         llenarTabla();
     }
 
@@ -132,17 +131,14 @@ public class jpVentas extends javax.swing.JInternalFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
-                        .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMontoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(dialogCobrarLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(dialogCobrarLayout.createSequentialGroup()
-                                        .addComponent(rbEfectivo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(rbCredito))
-                                    .addComponent(btnCobrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                        .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogCobrarLayout.createSequentialGroup()
+                                .addComponent(rbCredito)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbEfectivo))
+                            .addComponent(btnCobrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txtMontoAPagar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))))
         );
@@ -162,13 +158,13 @@ public class jpVentas extends javax.swing.JInternalFrame {
                 .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addComponent(txtMontoAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
+                        .addGap(42, 42, 42)
                         .addGroup(dialogCobrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbEfectivo)
-                            .addComponent(rbCredito))
-                        .addGap(13, 13, 13)
+                            .addComponent(rbCredito)
+                            .addComponent(rbEfectivo))
+                        .addGap(18, 18, 18)
                         .addComponent(btnCobrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(92, Short.MAX_VALUE))
+                        .addContainerGap(81, Short.MAX_VALUE))
                     .addGroup(dialogCobrarLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(34, 34, 34))))
@@ -224,52 +220,75 @@ public class jpVentas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrarActionPerformed
-        // TODO add your handling code here:       
-        //this.setVisible(false);
+        this.Saldo= this.montoACobrar;
+        this.lblMontoACobrar.setText(Integer.toString(this.montoACobrar));
+        this.txtMontoAPagar.setText(Integer.toString(this.Saldo));
         this.dialogCobrar.setResizable(true);
         this.dialogCobrar.setSize(700, 600);
-        this.dialogCobrar.show();       
+        this.dialogCobrar.show();          
        
     }//GEN-LAST:event_btnCobrarActionPerformed
 
-    private void btnCobrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrar1ActionPerformed
-        // TODO add your handling code here:
-        int pagoParcial = Integer.parseInt(this.txtMontoAPagar.getText());
-
-        if(this.Saldo  > 0 ) {
-            this.Saldo -= pagoParcial ;
-            if (this.rbCredito.isSelected() ){                
-                AreaDeVentas areaDeVentas = new AreaDeVentas();
-                JOptionPane.showMessageDialog(null,
-                    areaDeVentas.solicitudPrestamo(pagoParcial),
-                    "Solicitud de crédito",
-                    JOptionPane.WARNING_MESSAGE);
-            }             
-            Object [] pago = new Object[8];
-            pago[0] = this.rbCredito.isSelected() ? "Credito":"Efectivo";
-            pago[1] = pagoParcial;
-            modelo.addRow(pago);
-        }
-        else
-        {            
-                JOptionPane.showMessageDialog(null,
-                    "No queda saldo pendiente",
-                    "Solicitud de crédito",
-                    JOptionPane.WARNING_MESSAGE);
-        }
-        this.lblSaldo.setText(Integer.toString(this.Saldo));
-        this.txtMontoAPagar.setText(Integer.toString(this.Saldo));
-    }//GEN-LAST:event_btnCobrar1ActionPerformed
-
-    private void llenarTabla(){
-    
-    this.tablePagos.setModel(modelo);
-    //modelo.addColumn("Id");
-    modelo.addColumn("Tipo pago");
-    modelo.addColumn("Monto");
+    private void llenarTabla(){    
+        this.tablePagos.setModel(modelo);
+        modelo.addColumn("Tipo pago");
+        modelo.addColumn("Monto");
     }
     
+    private void btnCobrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrar1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            
+        int pagoParcial = Integer.parseInt(this.txtMontoAPagar.getText());
+        this.lblMontoACobrar.setText(Integer.toString(this.montoACobrar));
 
+         if (ValidarSaldo(pagoParcial))   
+         {
+                this.Saldo -= pagoParcial ;
+                if (this.rbCredito.isSelected() ){                
+                    AreaDeVentas areaDeVentas = new AreaDeVentas();
+                    JOptionPane.showMessageDialog(null,
+                        areaDeVentas.solicitudPrestamo(pagoParcial),
+                        "Solicitud de crédito",
+                        JOptionPane.WARNING_MESSAGE);
+                }             
+
+                Object [] pago = new Object[8];
+                pago[0] = this.rbCredito.isSelected() ? "Credito" : "Efectivo";
+                pago[1] = pagoParcial;
+                modelo.addRow(pago);
+
+                this.lblSaldo.setText(Integer.toString(this.Saldo));
+                this.txtMontoAPagar.setText(Integer.toString(this.Saldo));
+         }
+        }
+        catch(Exception ex){
+                JOptionPane.showMessageDialog(null,
+                    ex.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);            
+        }
+    }//GEN-LAST:event_btnCobrar1ActionPerformed
+
+    private boolean ValidarSaldo(int pagoParcial){
+            if(pagoParcial > this.Saldo ) {
+
+                JOptionPane.showMessageDialog(null,
+                    "Pago mayor al saldo",
+                    "Solicitud de crédito",
+                    JOptionPane.WARNING_MESSAGE);  
+                    return false;
+            }
+            if(this.Saldo  <= 0  ) {
+
+                JOptionPane.showMessageDialog(null,
+                    "Saldo cubierto",
+                    "Solicitud de crédito",
+                    JOptionPane.WARNING_MESSAGE);  
+                    return false;
+            }
+        return true;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCobrar;
     private javax.swing.JButton btnCobrar1;
