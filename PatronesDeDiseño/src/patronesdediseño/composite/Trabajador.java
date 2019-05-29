@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patronesdediseño.roles;
+package patronesdediseño.composite;
 
 import java.util.Date;
 
@@ -22,19 +22,6 @@ public class Trabajador {
     private String dni;
     private double salary;
     private Role role;
-
-    public Trabajador(String firstName, String lastName, String email, String phoneNumber, Date birthdate, String Address, Date dateAdmission, String dni, double salary, Role role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.birthdate = birthdate;
-        this.Address = Address;
-        this.dateAdmission = dateAdmission;
-        this.dni = dni;
-        this.salary = salary;
-        this.role = role;
-    }
 
     public String getFirstName() {
         return firstName;

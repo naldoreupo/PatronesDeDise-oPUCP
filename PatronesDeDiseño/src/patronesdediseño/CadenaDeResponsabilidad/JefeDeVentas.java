@@ -1,7 +1,9 @@
 package patronesdediseño.CadenaDeResponsabilidad;
 
+import patronesdediseño.composite.Trabajador;
 
-public class JefeDeVentas implements IAprobador {
+
+public class JefeDeVentas extends Trabajador implements IAprobador {
 
     IAprobador next;
     

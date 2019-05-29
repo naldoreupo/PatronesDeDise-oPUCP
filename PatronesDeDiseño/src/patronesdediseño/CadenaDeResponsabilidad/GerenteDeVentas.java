@@ -5,8 +5,10 @@
  */
 package patronesdediseño.CadenaDeResponsabilidad;
 
+import patronesdediseño.composite.Trabajador;
 
-public class GerenteDeVentas implements IAprobador {
+
+public class GerenteDeVentas extends Trabajador  implements IAprobador {
 
   IAprobador next;
     

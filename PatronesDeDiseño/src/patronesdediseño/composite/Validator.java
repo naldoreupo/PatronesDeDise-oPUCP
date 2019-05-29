@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patronesdediseño.roles;
+package patronesdediseño.composite;
+
+import java.util.List;
 
 /**
  *
  * @author carlos
+ * @param <T>
  */
-public enum Role {
-    VENDEDOR,
-    SUPERVISOR_VENTAS,
-    JEFE_VENTAS,
-    GERENTE_ZONA,
-    GERENTE_VENTAS
+public interface Validator<T> {
+    List<String> validate(T info);
 }
