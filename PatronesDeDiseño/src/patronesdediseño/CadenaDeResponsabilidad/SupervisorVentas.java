@@ -1,9 +1,17 @@
 
 package patronesdediseño.CadenaDeResponsabilidad;
 
+import java.util.Date;
+import patronesdediseño.roles.Role;
+import patronesdediseño.roles.Trabajador;
 
-public class SupervisorVentas implements IAprobador {
+
+public class SupervisorVentas extends Trabajador implements IAprobador {
     IAprobador next;
+
+    public SupervisorVentas(String firstName, String lastName, String email, String phoneNumber, Date birthdate, String Address, Date dateAdmission, String dni, double salary, Role role) {
+        super(firstName, lastName, email, phoneNumber, birthdate, Address, dateAdmission, dni, salary, role);
+    }
     
     @Override
     public void setNext(IAprobador aprobador) {
