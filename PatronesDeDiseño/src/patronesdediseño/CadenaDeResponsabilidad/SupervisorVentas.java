@@ -1,8 +1,10 @@
 
 package patronesdediseño.CadenaDeResponsabilidad;
 
+import patronesdediseño.composite.Trabajador;
 
-public class SupervisorVentas implements IAprobador {
+
+public class SupervisorVentas extends Trabajador implements IAprobador {
     IAprobador next;
     
     @Override
