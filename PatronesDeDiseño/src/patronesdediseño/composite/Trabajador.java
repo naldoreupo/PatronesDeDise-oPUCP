@@ -16,12 +16,11 @@ public class Trabajador {
     private String lastName;
     private String email;
     private String phoneNumber;
-    private Date birthdate;
+    private String birthdate;
     private String Address;
     private Date dateAdmission;
     private String dni;
     private double salary;
-    private Role role;
 
     public String getFirstName() {
         return firstName;
@@ -55,11 +54,11 @@ public class Trabajador {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -93,14 +92,6 @@ public class Trabajador {
 
     public void setSalary(double salary) {
         this.salary = salary;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
     
 }
