@@ -344,7 +344,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
     }
 
     private String solicitarCredito(int pagoParcial){
-            AreaDeVentas areaDeVentas = new AreaDeVentas();
+           AreaDeVentas areaDeVentas = new AreaDeVentas();
            return  areaDeVentas.solicitudPrestamo(pagoParcial);
 
     }
