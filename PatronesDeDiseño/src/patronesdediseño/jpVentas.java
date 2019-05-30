@@ -324,8 +324,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
                 if (TieneCreditoAnteriores()) {
                     return;
                 }
-                AreaDeVentas areaDeVentas = new AreaDeVentas();
-                aprobador = areaDeVentas.solicitudPrestamo(pagoParcial);
+                aprobador = solicitarCredito(pagoParcial);
 
                 JOptionPane.showMessageDialog(null,
                         "Crédito aprobado por " + aprobador,
@@ -344,6 +343,12 @@ public class jpVentas extends javax.swing.JInternalFrame {
         }
     }
 
+    private String solicitarCredito(int pagoParcial){
+            AreaDeVentas areaDeVentas = new AreaDeVentas();
+           return  areaDeVentas.solicitudPrestamo(pagoParcial);
+
+    }
+    
     @SuppressWarnings("empty-statement")
     private boolean TieneCreditoAnteriores() {
         DefaultTableModel model = (DefaultTableModel) this.tablePagos.getModel();
