@@ -3,7 +3,7 @@ package patronesdediseño.CadenaDeResponsabilidad;
 import patronesdediseño.composite.Trabajador;
 
 
-public class JefeDeVentas extends Trabajador implements IAprobador {
+public class AnalistaDeCreditos extends Trabajador implements IAprobador {
 
     IAprobador next;
     
@@ -19,8 +19,8 @@ public class JefeDeVentas extends Trabajador implements IAprobador {
 
     @Override
     public String solicitudPrestamo(int monto) {
-            if( monto >= 10000 && monto < 20000){
-                return "Jefe de ventas";
+            if( monto < 5000){
+                return "Analista de Créditos";
             }
             else{
               return  next.solicitudPrestamo(monto);
