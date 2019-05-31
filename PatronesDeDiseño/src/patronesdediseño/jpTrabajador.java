@@ -95,7 +95,6 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel3.setText("Nombres");
 
-        firstNameTextField.setBackground(new java.awt.Color(255, 255, 255));
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTextFieldActionPerformed(evt);
@@ -105,22 +104,14 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel4.setText("Apellidos");
 
-        lastNameTextField.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel5.setText("Correo");
-
-        emailTextField.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel6.setText("DNI");
 
-        dniTextField.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel7.setText("Telefono");
-
-        phoneNumberTextField.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton2.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jButton2.setText("ACEPTAR");
@@ -140,8 +131,6 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel8.setText("Direccion");
-
-        addressTextField.setBackground(new java.awt.Color(255, 255, 255));
 
         jErrorList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -247,6 +236,8 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        setClosable(true);
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
         jLabel1.setText("Empleados");
