@@ -8,14 +8,6 @@ package patronesdediseño;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
-import patronesdediseño.composite.AddressValidator;
-import patronesdediseño.composite.CompositeValidator;
-import patronesdediseño.composite.DniValidator;
-import patronesdediseño.composite.EmailValidator;
-import patronesdediseño.composite.NameValidator;
-import patronesdediseño.composite.PhoneNumberValidator;
-import patronesdediseño.composite.Trabajador;
-import patronesdediseño.composite.Validator;
 
 /**
  *

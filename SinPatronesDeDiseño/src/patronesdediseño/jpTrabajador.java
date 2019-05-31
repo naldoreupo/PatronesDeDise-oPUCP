@@ -10,14 +10,8 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.table.DefaultTableModel;
-import patronesdediseño.composite.AddressValidator;
-import patronesdediseño.composite.CompositeValidator;
-import patronesdediseño.composite.DniValidator;
-import patronesdediseño.composite.EmailValidator;
-import patronesdediseño.composite.NameValidator;
-import patronesdediseño.composite.PhoneNumberValidator;
 import patronesdediseño.composite.Trabajador;
-import patronesdediseño.composite.Validator;
+import patronesdediseño.composite.TrabajadorValidator;
 
 /**
  *
@@ -313,14 +307,7 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Trabajador nuevoTrabajador = new Trabajador();
-        CompositeValidator<Trabajador> trabajadorValidator;
-        List<Validator<Trabajador>> validators = new ArrayList<Validator<Trabajador>>();
-        validators.add(new NameValidator());
-        validators.add(new EmailValidator());
-        validators.add(new PhoneNumberValidator());
-        validators.add(new AddressValidator());
-        validators.add(new DniValidator());
-        trabajadorValidator = new CompositeValidator<Trabajador>(validators);
+        TrabajadorValidator trabajadorValidator = new TrabajadorValidator();
 
         nuevoTrabajador.setFirstName(firstNameTextField.getText());
         nuevoTrabajador.setLastName(lastNameTextField.getText());
