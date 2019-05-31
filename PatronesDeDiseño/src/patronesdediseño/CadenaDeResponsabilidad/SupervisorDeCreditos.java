@@ -19,7 +19,7 @@ public class SupervisorDeCreditos extends Trabajador implements IAprobador {
 
     @Override
     public String solicitudPrestamo(int monto) {
-            if( monto < 10000 ){
+            if( monto >= 50000 && monto <10000 ){
                 return "Supervisor de créditos";
             }
             else{

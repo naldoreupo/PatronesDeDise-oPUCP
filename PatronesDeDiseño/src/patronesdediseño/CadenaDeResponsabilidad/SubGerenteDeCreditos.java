@@ -24,7 +24,7 @@ public class SubGerenteDeCreditos extends Trabajador  implements IAprobador {
 
     @Override
     public String solicitudPrestamo(int monto) {
-            if( monto >= 20000 && monto < 30000){
+            if( monto >= 10000 ){
                return "Sub Gerente de créditos";
             }
             else{
