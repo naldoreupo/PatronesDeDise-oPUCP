@@ -26,6 +26,8 @@ import patronesdediseño.composite.Validator;
 public class jpTrabajador extends javax.swing.JInternalFrame {
     
     DefaultTableModel modelo = new DefaultTableModel();
+    private final Integer limitDni = 8;
+    private final Integer limitPhoneNumber = 9;
 
     /**
      * Creates new form jpTrabajador
@@ -77,13 +79,13 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
         dniTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         phoneNumberTextField = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         addressTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jErrorList = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -110,22 +112,18 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel6.setText("DNI");
 
-        jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel7.setText("Telefono");
-
-        jButton2.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jButton2.setText("ACEPTAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        dniTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dniTextFieldKeyTyped(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel7.setText("Telefono");
+
+        phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyTyped(evt);
             }
         });
 
@@ -165,18 +163,16 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
                                         .addComponent(emailTextField)
                                         .addComponent(addressTextField)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2)
                                         .addComponent(jLabel6)
-                                        .addComponent(dniTextField)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                                        .addComponent(dniTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(24, 24, 24)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel7)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(phoneNumberTextField)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))))
+                                            .addGap(0, 170, Short.MAX_VALUE))
+                                        .addComponent(phoneNumberTextField))))
                             .addComponent(jLabel9))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -213,28 +209,52 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
+
+        jButton3.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jButton2.setText("ACEPTAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout nuevoTrabajadorDialogLayout = new javax.swing.GroupLayout(nuevoTrabajadorDialog.getContentPane());
         nuevoTrabajadorDialog.getContentPane().setLayout(nuevoTrabajadorDialogLayout);
         nuevoTrabajadorDialogLayout.setHorizontalGroup(
             nuevoTrabajadorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoTrabajadorDialogLayout.createSequentialGroup()
+            .addGroup(nuevoTrabajadorDialogLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(nuevoTrabajadorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoTrabajadorDialogLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoTrabajadorDialogLayout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(24, 24, 24))))
         );
         nuevoTrabajadorDialogLayout.setVerticalGroup(
             nuevoTrabajadorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nuevoTrabajadorDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(nuevoTrabajadorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setClosable(true);
@@ -297,7 +317,7 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.nuevoTrabajadorDialog.setResizable(true);
-        this.nuevoTrabajadorDialog.setSize(494, 532);
+        this.nuevoTrabajadorDialog.setSize(470, 570);
         this.nuevoTrabajadorDialog.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -363,6 +383,21 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
         nuevoTrabajadorDialog.hide();
         clearForm();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void dniTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniTextFieldKeyTyped
+        // TODO add your handling code here:
+        if (dniTextField.getText().length() == limitDni) {
+            evt.consume(); 
+        }
+         
+    }//GEN-LAST:event_dniTextFieldKeyTyped
+
+    private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
+        // TODO add your handling code here:
+        if (phoneNumberTextField.getText().length() == limitPhoneNumber) {
+            evt.consume(); 
+        }
+    }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

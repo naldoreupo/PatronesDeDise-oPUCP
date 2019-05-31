@@ -19,12 +19,18 @@ public class PhoneNumberValidator implements Validator<Trabajador> {
     public List<String> validate(Trabajador info) {
         List<String> errors = new ArrayList<String>();
         String phoneNumber = info.getPhoneNumber();
+        String pattern = "\\d{9}";
+        Pattern pat = Pattern.compile(pattern); 
 
         if (phoneNumber == null || phoneNumber.isEmpty()) {
             errors.add("Debe completar el número telefonico");
         } else {
             if (phoneNumber.length() != 9) {
                 errors.add("El número telefónico debe tener 9 digitos");
+            } else {
+                if (!pat.matcher(phoneNumber).matches()) {
+                    errors.add("El número telefónico debe estar en formato válido");
+                }
             }
         }
 
