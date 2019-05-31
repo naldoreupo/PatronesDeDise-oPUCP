@@ -1,6 +1,6 @@
-package patronesdediseño.AbstractFactory;
+package patronesdediseño.SinAbstractFactory;
 
-public class AutoToyota implements IAuto {
+public class AutoToyota{
 
     private String nombre;
     private double precio;
@@ -9,13 +9,11 @@ public class AutoToyota implements IAuto {
         this.nombre = "Auto Toyota";
         this.precio = 12000;
     }
-
-    @Override
+    
     public String getNombre() {
         return this.nombre;
     }
-
-    @Override
+    
     public double getPrecio() {
         return this.precio;
     }

@@ -1,6 +1,6 @@
-package patronesdediseño.AbstractFactory;
+package patronesdediseño.SinAbstractFactory;
 
-public class MotoMitsubishi implements IMoto{
+public class MotoMitsubishi {
 
     private String nombre;
     private double precio;
@@ -10,12 +10,10 @@ public class MotoMitsubishi implements IMoto{
         this.precio = 3600;
     }
 
-    @Override
     public String getNombre() {
         return this.nombre;
     }
 
-    @Override
     public double getPrecio() {
         return this.precio;
     }

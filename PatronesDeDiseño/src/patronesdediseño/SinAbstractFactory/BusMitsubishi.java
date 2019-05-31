@@ -1,6 +1,6 @@
-package patronesdediseño.AbstractFactory;
+package patronesdediseño.SinAbstractFactory;
 
-public class BusMitsubishi implements IBus {
+public class BusMitsubishi {
 
     private String nombre;
     private double precio;
@@ -9,13 +9,11 @@ public class BusMitsubishi implements IBus {
         this.nombre = "Bus Mitsubishi";
         this.precio = 26500;
     }
-
-    @Override
+    
     public String getNombre() {
         return this.nombre;
     }
-
-    @Override
+    
     public double getPrecio() {
         return this.precio;
     }

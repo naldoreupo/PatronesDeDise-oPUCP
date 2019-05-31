@@ -5,17 +5,20 @@
  */
 package patronesdediseño;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import patronesdediseño.AbstractFactory.IAuto;
-import patronesdediseño.AbstractFactory.IBus;
-import patronesdediseño.AbstractFactory.ICamion;
-import patronesdediseño.AbstractFactory.IMarca;
-import patronesdediseño.AbstractFactory.IMoto;
-import patronesdediseño.AbstractFactory.Kia;
-import patronesdediseño.AbstractFactory.Mitsubishi;
-import patronesdediseño.AbstractFactory.Toyota;
+import patronesdediseño.SinAbstractFactory.AutoKia;
+import patronesdediseño.SinAbstractFactory.AutoMitsubishi;
+import patronesdediseño.SinAbstractFactory.AutoToyota;
+import patronesdediseño.SinAbstractFactory.BusKia;
+import patronesdediseño.SinAbstractFactory.BusMitsubishi;
+import patronesdediseño.SinAbstractFactory.BusToyota;
+import patronesdediseño.SinAbstractFactory.CamionKia;
+import patronesdediseño.SinAbstractFactory.CamionMitsubishi;
+import patronesdediseño.SinAbstractFactory.CamionToyota;
+import patronesdediseño.SinAbstractFactory.MotoKia;
+import patronesdediseño.SinAbstractFactory.MotoMitsubishi;
+import patronesdediseño.SinAbstractFactory.MotoToyota;
 import patronesdediseño.CadenaDeResponsabilidad.AreaDeVentas;
 
 /**
@@ -454,40 +457,66 @@ public class jpVentas extends javax.swing.JInternalFrame {
 
     private void cmbMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMarcaActionPerformed
         // TODO add your handling code here:
-        IMarca marca;
 
         String marcaSeleccionada = cmbMarca.getSelectedItem().toString();
 
         switch (marcaSeleccionada) {
             case "Kia":
-                marca = new Kia();
+                crearVehiculosKia();
                 break;
             case "Mitsubishi":
-                marca = new Mitsubishi();
+                crearVehiculosMitsubishi();
                 break;
             case "Toyota":
-                marca = new Toyota();
+                crearVehiculosToyota();
                 break;
             default:
-                marca = null;
                 break;
         }
 
-        if (marca != null) {
-            IAuto auto = marca.crearAuto();
-            IMoto moto = marca.crearMoto();
-            ICamion camion = marca.crearCamion();
-            IBus bus = marca.crearBus();
-
-            modelVehiculo.setRowCount(0);
-
-            modelVehiculo.addRow(new Object[]{auto.getNombre(), auto.getPrecio()});
-            modelVehiculo.addRow(new Object[]{moto.getNombre(), moto.getPrecio()});
-            modelVehiculo.addRow(new Object[]{camion.getNombre(), camion.getPrecio()});
-            modelVehiculo.addRow(new Object[]{bus.getNombre(), bus.getPrecio()});
-
-        }
     }//GEN-LAST:event_cmbMarcaActionPerformed
+
+    private void crearVehiculosKia() {
+        modelVehiculo.setRowCount(0);
+
+        AutoKia autoKia = new AutoKia();
+        MotoKia motoKia = new MotoKia();
+        BusKia busKia = new BusKia();
+        CamionKia camionKia = new CamionKia();
+
+        modelVehiculo.addRow(new Object[]{autoKia.getNombre(), autoKia.getPrecio()});
+        modelVehiculo.addRow(new Object[]{motoKia.getNombre(), motoKia.getPrecio()});
+        modelVehiculo.addRow(new Object[]{camionKia.getNombre(), camionKia.getPrecio()});
+        modelVehiculo.addRow(new Object[]{busKia.getNombre(), busKia.getPrecio()});
+    }
+
+    private void crearVehiculosToyota() {
+        modelVehiculo.setRowCount(0);
+
+        AutoToyota autoToyota = new AutoToyota();
+        MotoToyota motoToyota = new MotoToyota();
+        BusToyota busToyota = new BusToyota();
+        CamionToyota camionToyota = new CamionToyota();
+
+        modelVehiculo.addRow(new Object[]{autoToyota.getNombre(), autoToyota.getPrecio()});
+        modelVehiculo.addRow(new Object[]{motoToyota.getNombre(), motoToyota.getPrecio()});
+        modelVehiculo.addRow(new Object[]{camionToyota.getNombre(), camionToyota.getPrecio()});
+        modelVehiculo.addRow(new Object[]{busToyota.getNombre(), busToyota.getPrecio()});
+    }
+
+    private void crearVehiculosMitsubishi() {
+        modelVehiculo.setRowCount(0);
+
+        AutoMitsubishi autoMitsubishi = new AutoMitsubishi();
+        MotoMitsubishi motoMitsubishi = new MotoMitsubishi();
+        BusMitsubishi busMitsubishi = new BusMitsubishi();
+        CamionMitsubishi camionMitsubishi = new CamionMitsubishi();
+
+        modelVehiculo.addRow(new Object[]{autoMitsubishi.getNombre(), autoMitsubishi.getPrecio()});
+        modelVehiculo.addRow(new Object[]{motoMitsubishi.getNombre(), motoMitsubishi.getPrecio()});
+        modelVehiculo.addRow(new Object[]{camionMitsubishi.getNombre(), camionMitsubishi.getPrecio()});
+        modelVehiculo.addRow(new Object[]{busMitsubishi.getNombre(), busMitsubishi.getPrecio()});
+    }
 
     private void btnPorComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorComprarActionPerformed
 
@@ -574,12 +603,12 @@ public class jpVentas extends javax.swing.JInternalFrame {
         }
     }
 
-    private String solicitarCredito(int pagoParcial){
-           AreaDeVentas areaDeVentas = new AreaDeVentas();
-           return  areaDeVentas.solicitudPrestamo(pagoParcial);
+    private String solicitarCredito(int pagoParcial) {
+        AreaDeVentas areaDeVentas = new AreaDeVentas();
+        return areaDeVentas.solicitudPrestamo(pagoParcial);
 
     }
-    
+
     @SuppressWarnings("empty-statement")
     private boolean TieneCreditoAnteriores() {
         DefaultTableModel model = (DefaultTableModel) this.tablePagos.getModel();
