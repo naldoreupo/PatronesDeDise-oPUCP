@@ -16,7 +16,7 @@ import patronesdediseño.AbstractFactory.IMoto;
 import patronesdediseño.AbstractFactory.Kia;
 import patronesdediseño.AbstractFactory.Mitsubishi;
 import patronesdediseño.AbstractFactory.Toyota;
-import patronesdediseño.CadenaDeResponsabilidad.AreaDeVentas;
+import patronesdediseño.CadenaDeResponsabilidad.GerenciaCreditosYCobranzas;
 
 /**
  *
@@ -575,7 +575,7 @@ public class jpVentas extends javax.swing.JInternalFrame {
     }
 
     private String solicitarCredito(int pagoParcial){
-           AreaDeVentas areaDeVentas = new AreaDeVentas();
+           GerenciaCreditosYCobranzas areaDeVentas = new GerenciaCreditosYCobranzas();
            return  areaDeVentas.solicitudPrestamo(pagoParcial);
 
     }

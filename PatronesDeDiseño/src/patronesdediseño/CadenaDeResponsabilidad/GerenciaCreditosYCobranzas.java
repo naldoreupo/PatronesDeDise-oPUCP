@@ -6,7 +6,7 @@
 package patronesdediseño.CadenaDeResponsabilidad;
 
 
-public class AreaDeVentas implements IAprobador {
+public class GerenciaCreditosYCobranzas implements IAprobador {
 
     IAprobador next;
     
@@ -23,17 +23,14 @@ public class AreaDeVentas implements IAprobador {
     @Override
     public String solicitudPrestamo(int monto) {
        
-        SupervisorVentas supervisorVentas = new SupervisorVentas(); 
-        this.setNext(supervisorVentas);
+        AnalistaDeCreditos analistaDeCreditos = new AnalistaDeCreditos();
+        this.setNext(analistaDeCreditos);
         
-        JefeDeVentas jefeDeVentas = new JefeDeVentas();
-        supervisorVentas.setNext(jefeDeVentas);
+        SupervisorDeCreditos supervisorDeCreditos = new SupervisorDeCreditos(); 
+        analistaDeCreditos.setNext(supervisorDeCreditos);        
         
-        GerenteDeZona gerenteDeZona = new GerenteDeZona();
-        jefeDeVentas.setNext(gerenteDeZona);
-        
-        GerenteDeVentas gerenteDeVentas = new GerenteDeVentas();
-        gerenteDeZona.setNext(gerenteDeVentas);
+        SubGerenteDeCreditos subGerenteDeCreditos = new SubGerenteDeCreditos();
+        supervisorDeCreditos.setNext(subGerenteDeCreditos);        
         
         return next.solicitudPrestamo(monto);
     }

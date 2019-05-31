@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package patronesdediseño.CadenaDeResponsabilidad;
 
 import patronesdediseño.composite.Trabajador;
 
 
-public class GerenteDeZona extends Trabajador  implements IAprobador {
+public class AnalistaDeCreditos extends Trabajador implements IAprobador {
 
-  IAprobador next;
+    IAprobador next;
     
     @Override
     public void setNext(IAprobador aprobador) {
@@ -24,12 +19,12 @@ public class GerenteDeZona extends Trabajador  implements IAprobador {
 
     @Override
     public String solicitudPrestamo(int monto) {
-            if( monto >= 20000 && monto < 30000){
-               return "Gerente de zona";
+            if( monto >= 10000 && monto < 20000){
+                return "Analista de Créditos";
             }
             else{
               return  next.solicitudPrestamo(monto);
-            }    
+            }   
             
     }
 }
