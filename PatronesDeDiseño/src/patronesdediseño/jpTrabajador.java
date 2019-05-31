@@ -341,20 +341,24 @@ public class jpTrabajador extends javax.swing.JInternalFrame {
         nuevoTrabajador.setPhoneNumber(phoneNumberTextField.getText());
         List<String> errors = trabajadorValidator.validate(nuevoTrabajador);
         if (errors.size() == 0) {
-            Object[] trabajador = new Object[7];
-            trabajador[0] = nuevoTrabajador.getFirstName();
-            trabajador[1] = nuevoTrabajador.getLastName();
-            trabajador[2] = nuevoTrabajador.getEmail();
-            trabajador[3] = nuevoTrabajador.getDni();
-            trabajador[4] = nuevoTrabajador.getPhoneNumber();
-            modelo.addRow(trabajador);
-            nuevoTrabajadorDialog.hide();
-            clearForm();
+            guardarTrabajador(nuevoTrabajador);
         } else {
             showErrors(errors);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void guardarTrabajador(Trabajador nuevoTrabajador) {
+        Object[] trabajador = new Object[7];
+        trabajador[0] = nuevoTrabajador.getFirstName();
+        trabajador[1] = nuevoTrabajador.getLastName();
+        trabajador[2] = nuevoTrabajador.getEmail();
+        trabajador[3] = nuevoTrabajador.getDni();
+        trabajador[4] = nuevoTrabajador.getPhoneNumber();
+        modelo.addRow(trabajador);
+        nuevoTrabajadorDialog.hide();
+        clearForm();
+    }
+    
     private void showErrors(List<String> errors) {
         DefaultListModel model = new DefaultListModel<>();
         for (int i = 0; i < errors.size(); i++) {
